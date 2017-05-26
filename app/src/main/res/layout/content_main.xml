@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="proj.example.myapplication.MainActivity"
+    tools:showIn="@layout/activity_main">
+    <LinearLayout
+        android:weightSum="4"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/emailLayout"
+            android:hint="EMAIL"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/emailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/loginPasswordLayout"
+            android:hint="EMAIL"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/loginPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:text="Login"
+            android:id="@+id/login"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"/>
+        <Button
+        android:text="Sign Up"
+        android:id="@+id/signUp"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
