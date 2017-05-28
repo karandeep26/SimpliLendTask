@@ -7,7 +7,7 @@
     android:padding="30dp"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="proj.example.myapplication.LoanApplication"
+    tools:context="proj.example.myapplication.LoanApplicationActivity"
     tools:showIn="@layout/activity_loan_application">
     <LinearLayout
         android:id="@+id/purpose"
