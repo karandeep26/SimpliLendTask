@@ -9,8 +9,10 @@ import retrofit2.Retrofit
 fun TextInputEditText.isNotEmpty(): Boolean {
    return this.text.toString().isNotEmpty()
 }
+fun TextInputEditText.getString():String{
+    return this.text.toString()
+}
 
 fun Retrofit.getService(serviceClass: Any): Any {
     return this.create(serviceClass::class.java)
 }
-

@@ -2,11 +2,12 @@ package proj.example.myapplication
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.jetbrains.anko.startActivity
-import proj.example.myapplication.Network.IGetApplications
-import proj.example.myapplication.Network.model.LoanApplication
+import proj.example.myapplication.Network.ILogin
+import proj.example.myapplication.Network.model.LoginRequest
+import proj.example.myapplication.Network.model.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,21 +17,30 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        toolbar.title="SimpliLend"
+        setSupportActionBar(toolbar)
         signUp.setOnClickListener({
             startActivity<SignUp>()
         })
+
         login.setOnClickListener({
+            if (loginPassword.isNotEmpty() && emailContent.isNotEmpty()) {
+                val loginRequest = LoginRequest(emailContent.getString(), loginPassword.getString())
+                ApplicationClass.retrofit.create(ILogin::class.java).login(loginRequest)
+                        .enqueue(object : Callback<LoginResponse> {
+                    override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
+                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    }
 
-        })
-        ApplicationClass.retrofit.create(IGetApplications::class.java).getList(5).enqueue(object : Callback<ArrayList<LoanApplication>> {
-            override fun onFailure(call: Call<ArrayList<LoanApplication>>?, t: Throwable?) {
-                Log.d("error", t?.localizedMessage.toString())
-            }
-
-            override fun onResponse(call: Call<ArrayList<LoanApplication>>?, response: Response<ArrayList<LoanApplication>>?) {
-                if (response!!.isSuccessful) {
-                    print(response.body().toString())
-                }
+                    override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>) {
+                        if (response.isSuccessful) {
+                            val loginResponse = response.body()
+                            if (loginResponse?.success as Boolean) {
+                                startActivity<HomeActivity>()
+                            }
+                        }
+                    }
+                })
             }
         })
 

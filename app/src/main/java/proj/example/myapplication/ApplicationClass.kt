@@ -16,7 +16,7 @@ class ApplicationClass : Application() {
 
     companion object {
         var retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create()).baseUrl("http://192.168.0.104:8080/demo/")
+                .addConverterFactory(GsonConverterFactory.create()).baseUrl("http://192.168.132.58:8080/demo/")
                 .build()
     }
 

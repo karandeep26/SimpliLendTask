@@ -10,5 +10,5 @@ import retrofit2.http.Header
  */
 interface IGetApplications {
     @GET("getApplications")
-    fun getList(@Header("id") id: Int): Call<ArrayList<LoanApplication>>
+    fun getList(@Header("id") id: Int): Call<MutableList<LoanApplication>>
 }

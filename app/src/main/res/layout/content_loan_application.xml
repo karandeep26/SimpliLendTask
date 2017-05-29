@@ -4,11 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="30dp"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="proj.example.myapplication.LoanApplicationActivity"
+    tools:context="proj.example.myapplication.CreateLoanApplicationActivity"
     tools:showIn="@layout/activity_loan_application">
+    <android.support.v7.widget.CardView
+        app:cardElevation="5dp"
+        android:id="@+id/cardView"
+        app:cardUseCompatPadding="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/purpose"
         android:layout_width="match_parent"
@@ -38,7 +47,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <EditText
-        android:text="HI"
         android:layout_weight="1"
         android:inputType="number"
         android:id="@+id/amountContent"
@@ -63,10 +71,14 @@
             android:hint="ENTER ADDRESS"
             android:layout_height="wrap_content">
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/addressContent"
+                android:maxLines="1"
+                android:minEms="7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </android.support.design.widget.TextInputLayout>
        <Spinner
+           android:id="@+id/stateSpinner"
            android:layout_gravity="center"
            android:layout_weight="1"
            android:layout_width="0dp"
@@ -80,10 +92,11 @@
     <Spinner
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:id="@+id/city"
+        android:id="@+id/citySpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <EditText
+        android:id="@+id/pincode"
         android:hint="PIN CODE"
         android:layout_weight="1"
         android:layout_width="0dp"
@@ -98,14 +111,11 @@
         android:layout_height="wrap_content"/>
     <LinearLayout
         android:id="@+id/tenure"
+        android:weightSum="2"
         android:layout_below="@id/tenureLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Spinner
-            android:id="@+id/yearSpinner"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+
         <Spinner
             android:id="@+id/monthsSpinner"
             android:layout_weight="1"
@@ -113,17 +123,41 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/residence"
         android:text="Residence TYPE"
         android:layout_below="@id/tenure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <RadioGroup
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/residence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <RadioButton
+            android:id="@+id/house"
+            android:text="house"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:layout_marginLeft="10dp"
+            android:id="@+id/apartment"
+            android:text="apartment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RadioGroup>
+        </RelativeLayout>
 
+    </android.support.v7.widget.CardView>
+    <Button
+        android:text="Submit"
+        android:textColor="#fff"
+        android:theme="@style/MyButton"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/cardView"
+        android:id="@+id/submit_application"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>
