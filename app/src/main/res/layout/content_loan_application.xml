@@ -46,8 +46,9 @@
         android:id="@+id/amountLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
-    <EditText
-        android:layout_weight="1"
+    <EditText            android:maxLines="1"
+
+                         android:layout_weight="1"
         android:inputType="number"
         android:id="@+id/amountContent"
         android:layout_width="0dp"
@@ -66,23 +67,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <android.support.design.widget.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:hint="ENTER ADDRESS"
             android:layout_height="wrap_content">
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/addressContent"
                 android:maxLines="1"
-                android:minEms="7"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </android.support.design.widget.TextInputLayout>
-       <Spinner
-           android:id="@+id/stateSpinner"
-           android:layout_gravity="center"
-           android:layout_weight="1"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"/>
+
     </LinearLayout>
 <LinearLayout
     android:id="@+id/address2"
@@ -98,15 +92,23 @@
     <EditText
         android:id="@+id/pincode"
         android:hint="PIN CODE"
+        android:inputType="number"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
+            <Spinner
+                android:layout_below="@id/address2"
+                android:id="@+id/stateSpinner"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
     <TextView
+
         android:id="@+id/tenureLabel"
-        android:layout_below="@id/address2"
-        android:text="TENURE OF LOAN"
+        android:layout_below="@id/stateSpinner"
+        android:text="TENURE OF LOAN(months)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <LinearLayout

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">SimpliLend</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_sign_up">SignUp</string>
     <string name="title_activity_home">HomeActivity</string>

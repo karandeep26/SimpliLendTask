@@ -6,15 +6,18 @@ import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_view_loan_applications.*
 import proj.example.myapplication.Network.model.LoanApplication
 
-class ViewLoanApplications : AppCompatActivity() {
+class ViewLoanApplicationsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_loan_applications)
-        var list=intent.getSerializableExtra("list") as MutableList<LoanApplication>
+        var list:ArrayList<LoanApplication> =
+                intent.getParcelableArrayListExtra("list")
         var adapter = LoanListAdapter()
-        adapter.setList(list)
-        recyclerView.adapter=LoanListAdapter()
-        recyclerView.layoutManager= LinearLayoutManager(this)
+
+            adapter.setList(list)
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(this)
+        }
     }
-}
+

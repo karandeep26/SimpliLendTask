@@ -7,7 +7,7 @@ import android.os.Parcelable
  * Created by karan on 27/5/17.
  */
 class LoanApplication(var userId:Int, var loanAmount:Int, var purpose:String, var duration:Int,
-                      var address:String,  var city:String, var state:String, var pincode:String) : Parcelable {
+                      var street:String, var city:String, var state:String, var pincode:String) : Parcelable {
     companion object {
         @JvmField val CREATOR: Parcelable.Creator<LoanApplication> = object : Parcelable.Creator<LoanApplication> {
             override fun createFromParcel(source: Parcel): LoanApplication = LoanApplication(source)
@@ -34,7 +34,7 @@ class LoanApplication(var userId:Int, var loanAmount:Int, var purpose:String, va
         dest.writeInt(loanAmount)
         dest.writeString(purpose)
         dest.writeInt(duration)
-        dest.writeString(address)
+        dest.writeString(street)
         dest.writeString(city)
         dest.writeString(state)
         dest.writeString(pincode)
